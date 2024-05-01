@@ -1,16 +1,17 @@
+/* sticky footer code */
+body {
+  display: flex;
+  min-height: 100vh;
+  
+  flex-direction: column;
+}
+
 ul {
   list-style: none;
   display: flex;
   gap: 1rem;
   padding-left: 0;
   margin: 0;
-}
-
-body {
-  display: flex;
-  min-height: 100vh;
-  
-  flex-direction: column;
 }
 
 /* more sticky footer code */
