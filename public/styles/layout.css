@@ -69,6 +69,13 @@ header {
   margin: 0 auto 4rem auto;
 }
 
+.post-button {
+  background-color: #8000ff;
+  color: white;
+  border-radius: 0.3rem;
+  margin-top: 2rem;
+}
+
 /* more sticky footer code */
 main {
   flex: 1 0 auto;
