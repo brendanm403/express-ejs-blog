@@ -31,12 +31,21 @@
       </ul>
     </div>
 
-    <div id="action1-container" class="new-post-container visible-no">
+    <div id="action1-container" class="form-container visible-no">
       <form id="create-post" action="/create" method="post">
         <input type="text" name="title" placeholder="Enter a Title">
         <label for="content">Say Something!</label>
         <textarea name="content" cols="30" rows="5"></textarea>
         <input class="post-button" type="submit" value="Create">
+      </form>
+    </div>
+
+    <div id="action2-container" class="form-container">
+      <form action="/edit" method="post">
+        <input type="text" name="title" placeholder="Enter New Title">
+        <label for="content">Edit Your Thoughts!</label>
+        <textarea name="content" cols="30" rows="5"></textarea>
+        <input class="post-button" type="submit" value="Update">  
       </form>
     </div>
 

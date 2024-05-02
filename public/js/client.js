@@ -13,7 +13,7 @@ const preventEnterKeySubmit = () => {
         }
 }
 
-const showCreateForm = function() {
+const showActionForm = function() {
   for (let i = 1; i < 4; i++) {
     let targetElement = document.getElementById(`action${i}`);
     targetElement.addEventListener("click", (event) => {
@@ -35,5 +35,5 @@ const hideOnSubmit = () => {
   })
 }
 
-showCreateForm();
+showActionForm();
 preventEnterKeySubmit();

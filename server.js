@@ -33,6 +33,10 @@ app.post("/create", (req, res) => {
   res.render("index.ejs", { posts: postsArr });    
 })
 
+app.post("/edit", (req, res) => {
+  
+})
+
 app.listen(port, () => {
   console.log(`server running on port ${port}`);
 })

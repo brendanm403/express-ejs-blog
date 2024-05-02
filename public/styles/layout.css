@@ -63,7 +63,7 @@ header {
   cursor: pointer;  
 }
 
-.new-post-container { 
+.form-container { 
   max-width: fit-content;
   margin: 0 auto 4rem auto;
 }
