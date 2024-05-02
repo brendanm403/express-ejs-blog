@@ -6,21 +6,37 @@ body {
   flex-direction: column;
 }
 
-ul {
-  list-style: none;
-  display: flex;
-  padding-left: 0;
-  margin: 0;
-}
-
 li > a {
   padding: 1rem;
-  text-decoration: none;
   color: #8000ff;
 }
 
+nav > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  gap: 0.5rem;
+}
+
+header {
+  background-color: hsl(0, 0%, 92%);
+}
 
 /* more sticky footer code */
 main {
   flex: 1 0 auto;
+}
+
+@media screen and (width > 50rem) {
+  .nav-links {
+    display: flex;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
 }
