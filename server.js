@@ -9,6 +9,14 @@ app.get("/", (req, res) => {
   res.render("index.ejs");
 })
 
+app.get("/contact", (req, res) => {
+  res.render("contact.ejs");
+})
+
+app.get("/about", (req, res) => {
+  res.render("about.ejs");
+})
+
 app.listen(port, () => {
   console.log(`server running on port ${port}`);
 })
