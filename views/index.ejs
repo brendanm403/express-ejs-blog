@@ -25,9 +25,9 @@
         Select Action
       </button>
       <ul class="dropdown-menu">
-        <li class="dropdown-item">New Post</li>
-        <li class="dropdown-item">Edit Post</li>
-        <li class="dropdown-item">Delete Post</li>
+        <li id="action1" class="dropdown-item">New Post</li>
+        <li id="action2" class="dropdown-item">Edit Post</li>
+        <li id="action3" class="dropdown-item">Delete Post</li>
       </ul>
     </div>
 
@@ -45,6 +45,8 @@
         <h2><%= element.title %></h2>
         <p><%= element.content %></p> 
      <% }); %>
+   <% } else { %>
+          <h2>There are no blog posts to display</h2>
    <% } %>
     
 

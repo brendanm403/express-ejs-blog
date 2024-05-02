@@ -14,3 +14,14 @@ const preventEnterKeySubmit = () => {
 }
 
 preventEnterKeySubmit();
+
+const testing = () => {
+  for (let i = 1; i < 4; i++) {
+    let targetElement = document.getElementById(`action${i}`);
+    targetElement.addEventListener("click", (event) => {
+      console.log('clicked', event.target.id);
+    })
+  }  
+}
+
+testing();
