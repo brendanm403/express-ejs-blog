@@ -63,10 +63,13 @@ header {
   cursor: pointer;  
 }
 
-.new-post-container {
-  /* display: none; */
+.new-post-container { 
   max-width: fit-content;
   margin: 0 auto 4rem auto;
+}
+
+.visible-no {
+  display: none;
 }
 
 .post-button {
