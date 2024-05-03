@@ -34,7 +34,7 @@ app.get("/about", (req, res) => {
 
 app.post("/create", (req, res) => {
   addPost(req);
-  res.render("index.ejs", { posts: postsArr });    
+  res.render("blog-posts.ejs", { posts: postsArr });    
 })
 
 app.post("/edit", (req, res) => {
