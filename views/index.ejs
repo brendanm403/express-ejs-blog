@@ -63,6 +63,13 @@
       </form>
     </div>
 
+    <div id="action3-container" class="form-container visible-no">
+      <h2>Delete Post</h2>
+      <form action="/delete" method="post">
+
+      </form>
+    </div>
+
     <% if (locals.posts) { %>
       <% posts.forEach(element => { %>
         <h2><%= element.title %></h2>

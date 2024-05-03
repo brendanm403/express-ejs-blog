@@ -41,6 +41,8 @@ app.post("/edit", (req, res) => {
   res.render("index.ejs", { posts: postsArr });
 })
 
+
+
 app.listen(port, () => {
   console.log(`server running on port ${port}`);
 })
