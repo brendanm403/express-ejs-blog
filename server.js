@@ -4,18 +4,17 @@ const app= express();
 const port = 3000;
 const postsArr = [];
 
-const handlePosts = function(req, res, next) {
+const addPost = function(req) {
   // only pushes into array if object is not empty //
   if (Object.keys(req.body).length > 0 ) {
     postsArr.push(req.body);
     console.log(postsArr);
   }
-  next();
 }
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
-app.use(handlePosts);
+
 
 app.get("/", (req, res) => {
   res.render("index.ejs", { posts: postsArr });
@@ -34,6 +33,7 @@ app.get("/about", (req, res) => {
 })
 
 app.post("/create", (req, res) => {
+  addPost(req);
   res.render("index.ejs", { posts: postsArr });    
 })
 
