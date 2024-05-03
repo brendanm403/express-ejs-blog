@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(handlePosts);
 
 app.get("/", (req, res) => {
-  res.render("index.ejs");
+  res.render("index.ejs", { posts: postsArr });
 })
 
 app.get("/contact", (req, res) => {
@@ -34,7 +34,7 @@ app.post("/create", (req, res) => {
 })
 
 app.post("/edit", (req, res) => {
-  
+  res.render("index.ejs", { posts: postsArr });
 })
 
 app.listen(port, () => {

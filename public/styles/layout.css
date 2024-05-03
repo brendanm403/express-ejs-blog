@@ -63,9 +63,20 @@ header {
   cursor: pointer;  
 }
 
+
+
 .form-container { 
   max-width: fit-content;
   margin: 0 auto 4rem auto;
+  padding: 1rem 5rem 1rem 5rem;
+  border-radius: 1rem;
+  border: 2px solid black;
+}
+
+.form-title {
+  text-align: center;
+  color: #8000ff;
+  margin-bottom: 2rem;
 }
 
 .visible-no {
