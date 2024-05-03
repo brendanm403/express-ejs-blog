@@ -21,6 +21,10 @@ app.get("/", (req, res) => {
   res.render("index.ejs", { posts: postsArr });
 })
 
+app.get("/blog-posts", (req, res) => {
+  res.render("blog-posts.ejs");
+})
+
 app.get("/contact", (req, res) => {
   res.render("contact.ejs");
 })
