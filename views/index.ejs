@@ -45,6 +45,16 @@
 
     <div id="action2-container" class="form-container visible-no">
       <h2 class="form-title">Edit Post</h2>
+      <div class="dropdown">
+        <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Select Post
+        </button>
+        <ul class="dropdown-menu">
+          <% posts.forEach(element => { %>
+              <li class="dropdown-item edit-dropdown-item" id=<%= element.id %>> <%= element.title %> </li>    
+          <% }) %>
+        </ul>
+      </div>
       <form action="/edit" method="post">
         <label for="title">Edit Your Title!</label>
         <% if (locals.posts.length > 0) { %>

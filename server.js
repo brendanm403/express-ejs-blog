@@ -7,9 +7,14 @@ const postsArr = [];
 const addPost = function(req) {
   // only pushes into array if object is not empty //
   if (Object.keys(req.body).length > 0 ) {
+    Object.assign(req.body, {id: Math.ceil(Math.random() * 50000)})
     postsArr.push(req.body);
     console.log(postsArr);
   }
+}
+
+const editPost = function(req) {
+
 }
 
 app.use(express.static("public"));
@@ -38,7 +43,7 @@ app.post("/create", (req, res) => {
 })
 
 app.post("/edit", (req, res) => {
-  res.render("index.ejs", { posts: postsArr });
+  res.render("blog-posts.ejs", { posts: postsArr });
 })
 
 

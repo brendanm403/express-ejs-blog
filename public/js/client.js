@@ -28,6 +28,7 @@ const showActionForm = function() {
         element2.classList.add("visible-no");
         element3.classList.add("visible-no"); 
       } else if (event.target.id === "action2") {
+        aaa();
         element1.classList.add("visible-no");
         element2.classList.remove("visible-no");
         element1.classList.add("visible-no");
@@ -40,6 +41,17 @@ const showActionForm = function() {
   }  
 }
 
+const aaa = function() {
+  let elementArr = document.querySelectorAll(".edit-dropdown-item");
+  console.log(elementArr);
+  if (elementArr.length > 0) {
+    elementArr.forEach(element => {
+      element.addEventListener("click", (event) => {
+        console.log(event.target.id);
+      })
+  }
+  )};
+}
 
 showActionForm();
 preventEnterKeySubmit();
