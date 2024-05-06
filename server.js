@@ -25,6 +25,10 @@ app.get("/", (req, res) => {
   res.render("index.ejs", { posts: postsArr });
 })
 
+app.get("/server-data", (req, res) => {
+  res.send({key: postsArr});
+})
+
 app.get("/blog-posts", (req, res) => {
   res.render("blog-posts.ejs");
 })
