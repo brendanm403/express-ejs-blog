@@ -7,7 +7,9 @@ const postsArr = [];
 const addPost = function(req) {
   // only pushes into array if object is not empty //
   if (Object.keys(req.body).length > 0 ) {
-    Object.assign(req.body, {id: Math.ceil(Math.random() * 50000)})
+    let idNum = Math.ceil(Math.random() * 50000);
+    Object.assign(req.body, {id: idNum});
+    Object.assign(req.body, {deleteId: idNum});
     postsArr.push(req.body);
     console.log(postsArr);
   }
