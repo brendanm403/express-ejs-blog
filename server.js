@@ -30,7 +30,7 @@ app.get("/server-data", (req, res) => {
 })
 
 app.get("/blog-posts", (req, res) => {
-  res.render("blog-posts.ejs");
+  res.render("blog-posts.ejs", {posts: postsArr});
 })
 
 app.get("/contact", (req, res) => {
