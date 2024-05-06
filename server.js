@@ -11,12 +11,18 @@ const addPost = function(req) {
     Object.assign(req.body, {id: idNum});
     Object.assign(req.body, {deleteId: idNum});
     postsArr.push(req.body);
-    console.log(postsArr);
+    
   }
 }
 
 const editPost = function(req) {
-
+  const postId = req.body.id;
+  //const post = postsArr.filter((foundPost) => foundPost.id == postId);
+  //console.log("original post found with filter", post);
+  //console.log("the entire postsArr", postsArr);
+  console.log("index of", postsArr.findIndex((element) => element.id == postId));
+  let index = postsArr.findIndex((element) => element.id == postId);
+  postsArr[index] = req.body;
 }
 
 app.use(express.static("public"));
@@ -28,7 +34,7 @@ app.get("/", (req, res) => {
 })
 
 app.get("/server-data", (req, res) => {
-  res.send({key: postsArr});
+  res.send({data: postsArr});
 })
 
 app.get("/blog-posts", (req, res) => {
@@ -49,10 +55,10 @@ app.post("/create", (req, res) => {
 })
 
 app.post("/edit", (req, res) => {
+  console.log("new data to update with", req.body);
+  editPost(req);
   res.render("blog-posts.ejs", { posts: postsArr });
 })
-
-
 
 app.listen(port, () => {
   console.log(`server running on port ${port}`);

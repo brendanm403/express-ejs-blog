@@ -58,9 +58,10 @@
             </ul>
           </div>
           <label for="title">Edit Your Title!</label>
-          <input type="text" name="title" placeholder="Enter a New Title">
+          <input id="title-edit" type="text" name="title" placeholder="Enter a New Title">
           <label for="content">Edit Your Thoughts!</label>
-          <textarea name="content" cols="30" rows="5"></textarea>
+          <textarea id="content-edit" name="content" cols="30" rows="5"></textarea>
+          <textarea class="visible-no" name="id" id="hidden-input" cols="30" rows="10"></textarea>
           <input class="post-button" type="submit" value="Update">
         <% } else { %>
           <h3>There are no blog posts to edit!</h3>

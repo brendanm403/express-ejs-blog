@@ -15,13 +15,19 @@ const preventEnterKeySubmit = () => {
         }
 }
 
-const getData = async () => {
+const getData = async (event) => {
   const response = await fetch("http://localhost:3000/server-data");
   const myData = await response.json();
   console.log("data fetch", myData);
-  if (myData.key.length > 0) {
-    let nnn = document.getElementById("myh4");
-    nnn.innerHTML = myData.key[0].title
+  if (myData.data.length > 0) {
+    const title = document.getElementById("title-edit");
+    const content = document.getElementById("content-edit");
+    const hiddenInput = document.getElementById("hidden-input");
+    const blogPost = myData.data.filter((foundPost) => foundPost.id == event.target.id);
+    //console.log("newlog", blogPost);
+    title.attributes[3].value = blogPost[0].title;
+    content.innerHTML = blogPost[0].content;
+    hiddenInput.innerHTML = blogPost[0].id;
   }
 }
 
@@ -38,7 +44,7 @@ const showActionForm = function() {
         element2.classList.add("visible-no");
         element3.classList.add("visible-no"); 
       } else if (event.target.id === "action2") {
-        getData();
+        //getData();
         aaa();
         element1.classList.add("visible-no");
         element2.classList.remove("visible-no");
@@ -59,6 +65,7 @@ const aaa = function() {
     elementArr.forEach(element => {
       element.addEventListener("click", (event) => {
         console.log(event.target.id);
+        getData(event);
       })
   }
   )};
