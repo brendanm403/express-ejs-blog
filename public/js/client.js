@@ -15,6 +15,16 @@ const preventEnterKeySubmit = () => {
         }
 }
 
+const getData = async () => {
+  const response = await fetch("http://localhost:3000/server-data");
+  const myData = await response.json();
+  console.log("data fetch", myData);
+  if (myData.key.length > 0) {
+    let nnn = document.getElementById("myh4");
+    nnn.innerHTML = myData.key[0].title
+  }
+}
+
 const showActionForm = function() {
   let element1 = document.getElementById("action1-container");
   let element2 = document.getElementById("action2-container");
@@ -28,10 +38,11 @@ const showActionForm = function() {
         element2.classList.add("visible-no");
         element3.classList.add("visible-no"); 
       } else if (event.target.id === "action2") {
+        getData();
         aaa();
         element1.classList.add("visible-no");
         element2.classList.remove("visible-no");
-        element1.classList.add("visible-no");
+        element3.classList.add("visible-no");
       } else if (event.target.id === "action3") {
         element1.classList.add("visible-no");
         element2.classList.add("visible-no");
@@ -53,12 +64,7 @@ const aaa = function() {
   )};
 }
 
-const getData = async () => {
-  const response = await fetch("http://localhost:3000/server-data");
-  const myData = await response.json();
-  console.log(myData);
-}
+
 
 showActionForm();
 preventEnterKeySubmit();
-setTimeout(getData, 5000);
