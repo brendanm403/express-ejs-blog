@@ -19,7 +19,7 @@
 
   <main>
 
-    <% if (locals.posts) { %>
+    <% if (locals.posts.length > 0) { %>
       <% posts.forEach(element => { %>
         <h2><%= element.title %></h2>
         <p><%= element.content %></p> 
