@@ -50,10 +50,11 @@
           Select Post
         </button>
         <ul class="dropdown-menu">
-          <% posts.forEach(element => { %>
-              <li class="dropdown-item edit-dropdown-item" id=<%= element.id %>> <%= element.title %> </li>    
+          <% locals.posts.forEach(element => { %>
+            <li id=<%= element.id %> class="dropdown-item edit-dropdown-item"><%= element.title %></li>  
           <% }) %>
         </ul>
+        
       </div>
       <form action="/edit" method="post">
         <label for="title">Edit Your Title!</label>
