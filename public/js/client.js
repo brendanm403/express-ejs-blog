@@ -53,5 +53,12 @@ const aaa = function() {
   )};
 }
 
+const getData = async () => {
+  const response = await fetch("http://localhost:3000/server-data");
+  const myData = await response.json();
+  console.log(myData);
+}
+
 showActionForm();
 preventEnterKeySubmit();
+setTimeout(getData, 5000);
