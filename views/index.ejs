@@ -62,6 +62,7 @@
           <label for="content">Edit Your Thoughts!</label>
           <textarea id="content-edit" name="content" cols="30" rows="5"></textarea>
           <textarea class="visible-no" name="id" id="hidden-input" cols="30" rows="10"></textarea>
+          <textarea class="visible-no" name="deleteId" id="hidden-input-3" cols="30" rows="10"></textarea>
           <input class="post-button" type="submit" value="Update">
         <% } else { %>
           <h3>There are no blog posts to edit!</h3>
@@ -70,7 +71,7 @@
     </div>
 
     <div id="action3-container" class="form-container visible-no">
-      <h2>Delete Post</h2>
+      <h2 class="form-title">Delete Post</h2>
       <form action="/delete" method="post">
         <% if (locals.posts.length > 0) { %>
           <div class="dropdown">
@@ -82,10 +83,14 @@
                 <li deleteId= <%= element.deleteId %> class="dropdown-item delete-dropdown-item"><%= element.title %></li>  
               <% }) %>
             </ul>
-          </div>     
+          </div>
+          <textarea class="visible-no" name="id" id="hidden-input-2" cols="30" rows="10"></textarea>
+          <h3 id="delete-post-title"></h3>     
         <% } else { %>
             <h3>There are no blog posts to delete!</h3>
        <% } %>
+
+        <input class="post-button" type="submit" value="Delete">  
       </form>
     </div>
 

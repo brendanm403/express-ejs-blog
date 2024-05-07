@@ -23,6 +23,16 @@ const editPost = function(req) {
   let index = postsArr.findIndex((element) => element.id == postId);
   // replacing the element at that index with the object sent in post request 
   postsArr[index] = req.body;
+  console.log("tisone", postsArr[index]);
+}
+
+const deletePost = function(req) {
+  // getting the id from the post request
+  const postId = req.body.id;
+  // getting the index of the post in the array that matches the id in the post request
+  let index = postsArr.findIndex(element => element.id == postId);
+  // removes the object from the array
+  postsArr.splice(index, 1);
 }
 
 // needed to serve static files 
@@ -61,6 +71,12 @@ app.post("/create", (req, res) => {
 app.post("/edit", (req, res) => {
   editPost(req);
   res.render("blog-posts.ejs", { posts: postsArr });
+})
+
+app.post("/delete", (req, res) => {
+  console.log(req.body);
+  deletePost(req);
+  res.render("blog-posts.ejs", {posts: postsArr});
 })
 
 app.listen(port, () => {

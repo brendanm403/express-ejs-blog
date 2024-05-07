@@ -23,11 +23,13 @@ const getData = async (event) => {
     const title = document.getElementById("title-edit");
     const content = document.getElementById("content-edit");
     const hiddenInput = document.getElementById("hidden-input");
+    const hiddenInput3 = document.getElementById("hidden-input-3");
     const blogPost = myData.data.filter((foundPost) => foundPost.id == event.target.id);
     //console.log("newlog", blogPost);
     title.attributes[3].value = blogPost[0].title;
     content.innerHTML = blogPost[0].content;
     hiddenInput.innerHTML = blogPost[0].id;
+    hiddenInput3.innerHTML = blogPost[0].deleteId;
   }
 }
 
@@ -45,11 +47,12 @@ const showActionForm = function() {
         element3.classList.add("visible-no"); 
       } else if (event.target.id === "action2") {
         //getData();
-        aaa();
+        getEditData();
         element1.classList.add("visible-no");
         element2.classList.remove("visible-no");
         element3.classList.add("visible-no");
       } else if (event.target.id === "action3") {
+        getDeleteData();
         element1.classList.add("visible-no");
         element2.classList.add("visible-no");
         element3.classList.remove("visible-no")
@@ -58,17 +61,34 @@ const showActionForm = function() {
   }  
 }
 
-const aaa = function() {
+const getEditData = function() {
   let elementArr = document.querySelectorAll(".edit-dropdown-item");
-  console.log(elementArr);
+  //console.log(elementArr);
   if (elementArr.length > 0) {
     elementArr.forEach(element => {
       element.addEventListener("click", (event) => {
         console.log(event.target.id);
         getData(event);
-      })
+      });
   }
   )};
+}
+
+const getDeleteData = function() {
+  let postTitle = document.getElementById("delete-post-title");
+  let elementArr = document.querySelectorAll(".delete-dropdown-item");
+  let hiddenInput = document.getElementById("hidden-input-2");
+  console.log("newnew", postTitle, elementArr, hiddenInput);
+  if (elementArr.length > 0) {
+    elementArr.forEach(element => {
+      element.addEventListener("click", (event) => {
+        console.log(event.target.attributes[0].value);
+        console.log("pie", event.target.innerHTML);
+        hiddenInput.innerHTML = event.target.attributes[0].value;
+        postTitle.innerHTML = event.target.innerHTML;
+      });
+    });
+  }
 }
 
 
