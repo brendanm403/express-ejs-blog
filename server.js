@@ -1,5 +1,12 @@
 import express from 'express';
+//const _ = require('lodash');
+//import * as lodash from 'lodash';
+import lowerCase from 'lodash/lowerCase.js';
 
+
+
+
+console.log(lowerCase("hello-it-works-omg-omg"));
 const app= express();
 const port = 3000;
 const postsArr = [];
@@ -17,8 +24,8 @@ const addPost = function(req) {
 }
 
 const findMatch = function(req) {
-  console.log(req.params.postTitle);
-  const foundTitle = postsArr.filter(foundPost => foundPost.title === req.params.postTitle);
+  console.log((req.params.postTitle));
+  const foundTitle = postsArr.filter(foundPost => lowerCase(foundPost.title) === lowerCase(req.params.postTitle));
   if (foundTitle.length > 0) {
     console.log("match found");
   } else {
