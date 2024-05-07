@@ -16,6 +16,16 @@ const addPost = function(req) {
   }
 }
 
+const findMatch = function(req) {
+  console.log(req.params.postTitle);
+  const foundTitle = postsArr.filter(foundPost => foundPost.title === req.params.postTitle);
+  if (foundTitle.length > 0) {
+    console.log("match found");
+  } else {
+    console.log("no match");
+  }
+}
+
 const editPost = function(req) {
   // getting the id from data sent in post request
   const postId = req.body.id;
@@ -55,6 +65,12 @@ app.get("/blog-posts", (req, res) => {
   res.render("blog-posts.ejs", {posts: postsArr});
 })
 
+app.get("/blog-posts/:postTitle", (req, res) => {
+  findMatch(req);
+  
+  //res.render("blog-posts.ejs", {posts: postsArr});
+})
+
 app.get("/contact", (req, res) => {
   res.render("contact.ejs");
 })
@@ -77,6 +93,12 @@ app.post("/delete", (req, res) => {
   console.log(req.body);
   deletePost(req);
   res.render("blog-posts.ejs", {posts: postsArr});
+})
+
+
+
+app.get("/play/:game", (req, res) => {
+  console.log(req.params.game);
 })
 
 app.listen(port, () => {
