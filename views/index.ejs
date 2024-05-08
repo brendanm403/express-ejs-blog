@@ -24,7 +24,16 @@
     <div class="content-wrapper">
 
       <div>
-        <h2>Hi</h2>
+        <% if (locals.posts.length > 0) { %>
+          <% posts.forEach(element => { %>
+            <h2><%= element.title %></h2>
+            <p><%= element.content.substring(0, 100) + " ..." %>
+              <a href= "/blog-posts/<%= element.title %>">Read More</a>
+            </p> 
+         <% }); %>
+       <% } else { %>
+              <h2>There are no blog posts to display</h2>
+       <% } %>
       </div>
 
       <div>
