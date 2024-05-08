@@ -4,9 +4,6 @@ import express from 'express';
 import lowerCase from 'lodash/lowerCase.js';
 
 
-
-
-console.log(lowerCase("hello-it-works-omg-omg"));
 const app= express();
 const port = 3000;
 const postsArr = [];
@@ -23,13 +20,15 @@ const addPost = function(req) {
   }
 }
 
-const findMatch = function(req) {
+const findMatch = function(req, res) {
   console.log((req.params.postTitle));
   const foundTitle = postsArr.filter(foundPost => lowerCase(foundPost.title) === lowerCase(req.params.postTitle));
   if (foundTitle.length > 0) {
     console.log("match found");
+    res.render("post.ejs", {post: foundTitle});
   } else {
     console.log("no match");
+    res.render("post.ejs", {post: foundTitle});
   }
 }
 
@@ -57,15 +56,14 @@ app.use(express.static("public"));
 // gives access to req.body object 
 app.use(express.urlencoded({ extended: true }));
 
+app.get("/server-data", (req, res) => {
+  // sending array data for my fetch method so i can use the array data in the client side js file  
+  res.send({data: postsArr});
+})
 
 app.get("/", (req, res) => {
   // sending file and the array to be used to render data in the html(ejs file)
   res.render("index.ejs", { posts: postsArr });
-})
-
-app.get("/server-data", (req, res) => {
-  // sending array data for my fetch method so i can use the array data in the client side js file  
-  res.send({data: postsArr});
 })
 
 app.get("/blog-posts", (req, res) => {
@@ -73,9 +71,8 @@ app.get("/blog-posts", (req, res) => {
 })
 
 app.get("/blog-posts/:postTitle", (req, res) => {
-  findMatch(req);
-  
-  //res.render("blog-posts.ejs", {posts: postsArr});
+  // I put the res.render in the findmatch function unlike all the other routes 
+  findMatch(req, res);
 })
 
 app.get("/contact", (req, res) => {
@@ -88,7 +85,7 @@ app.get("/about", (req, res) => {
 
 app.post("/create", (req, res) => {
   addPost(req);
-  res.render("blog-posts.ejs", { posts: postsArr });    
+  res.redirect("/blog-posts");    
 })
 
 app.post("/edit", (req, res) => {
@@ -101,8 +98,6 @@ app.post("/delete", (req, res) => {
   deletePost(req);
   res.render("blog-posts.ejs", {posts: postsArr});
 })
-
-
 
 app.get("/play/:game", (req, res) => {
   console.log(req.params.game);
