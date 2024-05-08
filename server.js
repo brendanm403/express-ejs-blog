@@ -66,10 +66,6 @@ app.get("/", (req, res) => {
   res.render("index.ejs", { posts: postsArr });
 })
 
-app.get("/blog-posts", (req, res) => {
-  res.render("blog-posts.ejs", {posts: postsArr});
-})
-
 app.get("/blog-posts/:postTitle", (req, res) => {
   // I put the res.render in the findmatch function unlike all the other routes 
   findMatch(req, res);
@@ -85,12 +81,12 @@ app.get("/about", (req, res) => {
 
 app.post("/create", (req, res) => {
   addPost(req);
-  res.redirect("/blog-posts");    
+  res.redirect("/");    
 })
 
 app.post("/edit", (req, res) => {
   editPost(req);
-  res.render("blog-posts.ejs", { posts: postsArr });
+  res.render("index.ejs", { posts: postsArr });
 })
 
 app.post("/delete", (req, res) => {
