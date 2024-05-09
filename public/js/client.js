@@ -67,6 +67,8 @@ const showActionForm = function () {
   }
 };
 
+
+// TODO: make it so the input fields are hidden until the user selects a post to edit from the dropdown
 const getEditData = function () {
   let elementArr = document.querySelectorAll(".edit-dropdown-item");
   //console.log(elementArr);
