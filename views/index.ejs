@@ -75,13 +75,15 @@
                 <% }) %>
               </ul>
             </div>
-            <label for="title">Edit Your Title!</label>
-            <input id="title-edit" type="text" name="title" placeholder="Enter a New Title" required>
-            <label for="content">Edit Your Thoughts!</label>
-            <textarea id="content-edit" name="content" cols="30" rows="5" required></textarea>
-            <textarea class="visible-no" name="id" id="hidden-input" cols="30" rows="10"></textarea>
-            <textarea class="visible-no" name="deleteId" id="hidden-input-3" cols="30" rows="10"></textarea>
-            <input class="post-button" type="submit" value="Update">
+            <div id="edit-form-inputs" class="visible-no">
+              <label for="title">Edit Your Title!</label>
+              <input id="title-edit" type="text" name="title" placeholder="Enter a New Title" required>
+              <label for="content">Edit Your Thoughts!</label>
+              <textarea id="content-edit" name="content" cols="30" rows="5" required></textarea>
+              <textarea class="visible-no" name="id" id="hidden-input" cols="30" rows="10"></textarea>
+              <textarea class="visible-no" name="deleteId" id="hidden-input-3" cols="30" rows="10"></textarea>
+              <input class="post-button" type="submit" value="Update">
+            </div>
           <% } else { %>
             <h3>There are no blog posts to edit!</h3>
           <% } %> 
