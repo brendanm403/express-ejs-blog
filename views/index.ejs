@@ -26,7 +26,7 @@
       <div>
         <% if (locals.posts.length > 0) { %>
           <% posts.forEach(element => { %>
-            <h2><%= element.title %></h2>
+            <h2 class="post-title"><%= element.title %></h2>
             <p><%= element.content.substring(0, 100) + " ..." %>
               <a href= "/blog-posts/<%= element.title %>">Read More</a>
             </p> 
@@ -52,9 +52,9 @@
       <div id="action1-container" class="form-container visible-no">
         <h2 class="form-title">New Post</h2>
         <form id="create-post" action="/create" method="post">
-          <input type="text" name="title" placeholder="Enter a Title">
+          <input type="text" name="title" placeholder="Enter a Title" required>
           <label for="content">Say Something!</label>
-          <textarea name="content" cols="30" rows="5"></textarea>
+          <textarea name="content" cols="30" rows="5" required></textarea>
           <input class="post-button" type="submit" value="Create">
         </form>
       </div>
@@ -74,9 +74,9 @@
               </ul>
             </div>
             <label for="title">Edit Your Title!</label>
-            <input id="title-edit" type="text" name="title" placeholder="Enter a New Title">
+            <input id="title-edit" type="text" name="title" placeholder="Enter a New Title" required>
             <label for="content">Edit Your Thoughts!</label>
-            <textarea id="content-edit" name="content" cols="30" rows="5"></textarea>
+            <textarea id="content-edit" name="content" cols="30" rows="5" required></textarea>
             <textarea class="visible-no" name="id" id="hidden-input" cols="30" rows="10"></textarea>
             <textarea class="visible-no" name="deleteId" id="hidden-input-3" cols="30" rows="10"></textarea>
             <input class="post-button" type="submit" value="Update">
