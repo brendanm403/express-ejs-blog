@@ -49,7 +49,7 @@ form > textarea {
 .form-container { 
   max-width: fit-content;
   margin: 0 auto 4rem auto;
-  padding: 1rem 5rem 1rem 5rem;
+  padding: 1rem 1rem 1rem 1rem;
   border-radius: 1rem;
   border: 2px solid black;
 }
@@ -72,6 +72,7 @@ form > textarea {
 }
 
 .content-wrapper {
+  padding: 1rem;
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap-reverse;
@@ -85,4 +86,10 @@ form > textarea {
 
 .blog-post {
   padding: 1rem;
+}
+
+@media  screen and (width > 29rem) {
+  .form-container {
+    padding: 1rem 5rem 1rem 5rem;
+  }    
 }
