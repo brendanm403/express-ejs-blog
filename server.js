@@ -86,7 +86,7 @@ app.post("/create", (req, res) => {
 
 app.post("/edit", (req, res) => {
   editPost(req);
-  res.render("index.ejs", { posts: postsArr });
+  res.redirect("/");
 })
 
 app.post("/delete", (req, res) => {
