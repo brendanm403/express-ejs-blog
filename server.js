@@ -92,7 +92,7 @@ app.post("/edit", (req, res) => {
 app.post("/delete", (req, res) => {
   console.log(req.body);
   deletePost(req);
-  res.render("blog-posts.ejs", {posts: postsArr});
+  res.redirect("/");
 })
 
 app.get("/play/:game", (req, res) => {
