@@ -74,6 +74,9 @@ form > textarea {
 .content-wrapper {
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap-reverse;
+  align-items: baseline;
+  gap: 1rem;
 }
 
 .post-title {
@@ -81,5 +84,5 @@ form > textarea {
 }
 
 .blog-post {
-  align-self: baseline;
+  padding: 1rem;
 }
