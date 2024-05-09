@@ -3,17 +3,17 @@
 // prevents enter button from submitting a form //
 // get the form element//
 
-const preventEnterKeySubmit = () => {
-  let form = document.getElementById("create-post");
-  form.onkeydown = function (key) {
-    console.log(key);
-    let btn = 0 || key.keyCode || key.charCode;
-    if (btn == 13) {
-      // alert("Enter Key is Pressed!");
-      key.preventDefault();
-    }
-  };
-};
+// const preventEnterKeySubmit = () => {
+//   let form = document.getElementById("create-post");
+//   form.onkeydown = function (key) {
+//     console.log(key);
+//     let btn = 0 || key.keyCode || key.charCode;
+//     if (btn == 13) {
+//       // alert("Enter Key is Pressed!");
+//       key.preventDefault();
+//     }
+//   };
+// };
 
 const getData = async (event) => {
   try {
@@ -102,4 +102,4 @@ const getDeleteData = function () {
 };
 
 showActionForm();
-preventEnterKeySubmit();
+//preventEnterKeySubmit();
