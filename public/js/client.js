@@ -76,6 +76,8 @@ const getEditData = function () {
     elementArr.forEach((element) => {
       element.addEventListener("click", (event) => {
         console.log(event.target.id);
+        let formInputs = document.getElementById("edit-form-inputs");
+        formInputs.classList.remove("visible-no");
         getData(event);
       });
     });
