@@ -3,6 +3,10 @@ h1 {
   text-align: center;
 }
 
+article {
+  border-bottom: 4px double #8000ff;
+}
+
 form > input {
   display: block;
   border-color: #8000ff;
@@ -70,9 +74,12 @@ form > textarea {
 .content-wrapper {
   display: flex;
   justify-content: space-evenly;
-  
 }
 
 .post-title {
   margin-top: 3rem;
+}
+
+.blog-post {
+  align-self: baseline;
 }
