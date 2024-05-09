@@ -72,3 +72,7 @@ form > textarea {
   justify-content: space-evenly;
   
 }
+
+.post-title {
+  margin-top: 3rem;
+}
