@@ -2,11 +2,24 @@ import express from 'express';
 //const _ = require('lodash');
 //import * as lodash from 'lodash';
 import lowerCase from 'lodash/lowerCase.js';
+import multer from 'multer';
 
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, '../blog-project/public/uploads')
+  },
+  filename: function (req, file, cb) {
+    const uniquePrefix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+    cb(null, uniquePrefix + file.originalname);
+  }
+})
 
+const upload = multer({ storage: storage});
 const app= express();
 const port = 3000;
 const postsArr = [];
+
+
 
 const addPost = function(req) {
   // only pushes into array if object is not empty //
@@ -92,6 +105,13 @@ app.get("/about", (req, res) => {
 app.post("/create", (req, res) => {
   addPost(req);
   res.redirect("/");    
+})
+
+app.post("/profile", upload.single('avatar'), (req, res) => {
+  console.log(req.file);
+  const reqPath = req.file.path;
+  const alteredPath = req.file.path.substring(22, reqPath.length);
+  res.render("index.ejs", {posts: postsArr, imgSrc: alteredPath});
 })
 
 app.post("/edit", (req, res) => {
