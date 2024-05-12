@@ -20,16 +20,20 @@
 
 <body>
   <main>
-    
+
     <div class="content-wrapper">
 
       <div class="blog-post">
         <% if (locals.posts.length > 0) { %>
           <% posts.forEach(element => { %>
             <article>
-              <img src="<%= element.imgSrc %>" alt="post avatar">
-              <h2 class="post-title"><%= element.title %></h2>
-              <p class="date-time"><%= element.date %> @ <%= element.time %></p>
+              <div class="image-title-container">
+                <div>
+                  <h2 class="post-title"><%= element.title %></h2>
+                  <p class="date-time"><%= element.date %> @ <%= element.time %></p>
+                </div>
+                <img class="post-avatar" src="<%= element.imgSrc %>" alt="post avatar">
+              </div>
               <p><%= element.content.substring(0, 70) + " ..." %>
                 <a href= "/blog-posts/<%= element.title %>">Read More</a>
               </p>
