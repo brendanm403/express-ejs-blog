@@ -6,6 +6,10 @@ body {
   flex-direction: column;
 }
 
+.site-title {
+  color: white;
+}
+
 /* more sticky footer code */
 main {
   flex: 1 0 auto;
