@@ -93,6 +93,10 @@ textarea {
   padding: 1rem;
 }
 
+#delete-post-title {
+  text-align: center;
+}
+
 @media  screen and (width > 29rem) {
   .form-container {
     padding: 1rem 5rem 1rem 5rem;
