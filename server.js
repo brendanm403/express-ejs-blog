@@ -12,9 +12,14 @@ const addPost = function(req) {
   // only pushes into array if object is not empty //
   if (Object.keys(req.body).length > 0 ) {
     let idNum = Math.ceil(Math.random() * 50000);
+    // getting date and time to add to object
+    let date = new Date;
+    let dateString = date.toDateString();
     // adds new key value pair to object //
-    Object.assign(req.body, {id: idNum});
-    Object.assign(req.body, {deleteId: idNum});
+    Object.assign(req.body, { id: idNum });
+    Object.assign(req.body, { deleteId: idNum });
+    Object.assign(req.body, { date: dateString.substring(4, dateString.length)});
+    Object.assign(req.body, { time: date.toLocaleTimeString()});
     postsArr.push(req.body);
     
   }
@@ -33,6 +38,11 @@ const findMatch = function(req, res) {
 }
 
 const editPost = function(req) {
+  // adding date and time to object
+  let date = new Date;
+  let dateString = date.toDateString();
+  Object.assign(req.body, { date: dateString.substring(4, dateString.length)});
+  Object.assign(req.body, { time: date.toLocaleTimeString()});
   // getting the id from data sent in post request
   const postId = req.body.id;
   // getting the index of the post in the array that matches the id in the post request 
