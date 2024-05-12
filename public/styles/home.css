@@ -1,0 +1,116 @@
+h1 {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+article {
+  border-bottom: 4px double #8000ff;
+}
+
+
+
+input {
+  display: block;
+  border-color: #8000ff;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin: 0 auto 1rem auto;
+}
+
+label {
+  display: block;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+textarea {
+  display: block;
+  border-color: #8000ff;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin: auto;
+}
+
+.date-time {
+  color: hsl(0, 0%, 55%);
+  margin-bottom: 0.5rem;
+}
+
+.dropdown {
+  max-width: fit-content;
+  margin: 4rem auto 4rem auto;
+}
+
+.dropdown .btn {
+  background-color: #8000ff;
+}
+
+.dropdown-item {
+  cursor: pointer;  
+}
+
+
+
+.form-container { 
+  max-width: fit-content;
+  margin: 0 auto 4rem auto;
+  padding: 1rem 1rem 1rem 1rem;
+  border-radius: 1rem;
+  border: 2px solid black;
+}
+
+.form-title {
+  text-align: center;
+  color: #8000ff;
+  margin-bottom: 2rem;
+}
+
+.visible-no {
+  display: none;
+}
+
+.post-button {
+  background-color: #8000ff;
+  color: white;
+  border-radius: 0.3rem;
+  margin-top: 2rem;
+}
+
+.content-wrapper {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap-reverse;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.post-title {
+  margin-top: 1rem;
+}
+
+.blog-post {
+  padding: 1rem;
+}
+
+.image-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-avatar {
+  display: block;
+  width: 80px;
+  height: 80px;
+}
+
+#delete-post-title {
+  text-align: center;
+}
+
+@media  screen and (width > 29rem) {
+  .form-container {
+    padding: 1rem 5rem 1rem 5rem;
+  }    
+}
