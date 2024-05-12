@@ -28,11 +28,22 @@ const addPost = function(req) {
     // getting date and time to add to object
     let date = new Date;
     let dateString = date.toDateString();
+    // getting file path for uploaded image if user uploades file, if not assign default image
+    if (req.file) {
+      //console.log("file uploaded");
+      const reqPath = req.file.path;
+      const alteredPath = req.file.path.substring(22, reqPath.length);
+      Object.assign(req.body, { imgSrc: alteredPath });
+    } else {
+      console.log("no file uploaded");
+      Object.assign(req.body, { imgSrc: "images/image-icon.png"} );
+    }
     // adds new key value pair to object //
     Object.assign(req.body, { id: idNum });
     Object.assign(req.body, { deleteId: idNum });
     Object.assign(req.body, { date: dateString.substring(4, dateString.length)});
     Object.assign(req.body, { time: date.toLocaleTimeString()});
+    // console.log("good if seen here", req.body);
     postsArr.push(req.body);
     
   }
@@ -102,17 +113,18 @@ app.get("/about", (req, res) => {
   res.render("about.ejs");
 })
 
-app.post("/create", (req, res) => {
+app.post("/create", upload.single('avatar'), (req, res) => {
   addPost(req);
+  //console.log("kitboga", req.file);
   res.redirect("/");    
 })
 
-app.post("/profile", upload.single('avatar'), (req, res) => {
-  console.log(req.file);
-  const reqPath = req.file.path;
-  const alteredPath = req.file.path.substring(22, reqPath.length);
-  res.render("index.ejs", {posts: postsArr, imgSrc: alteredPath});
-})
+// app.post("/profile", upload.single('avatar'), (req, res) => {
+//   console.log(req.file);
+//   const reqPath = req.file.path;
+//   const alteredPath = req.file.path.substring(22, reqPath.length);
+//   res.render("index.ejs", {posts: postsArr, imgSrc: alteredPath});
+// })
 
 app.post("/edit", (req, res) => {
   editPost(req);
