@@ -9,8 +9,8 @@ const storage = multer.diskStorage({
     cb(null, '../blog-project/public/uploads')
   },
   filename: function (req, file, cb) {
-    const uniquePrefix = Date.now() + '-' + Math.round(Math.random() * 1E9)
-    cb(null, uniquePrefix + file.originalname);
+    //const uniquePrefix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+    cb(null, file.originalname);
   }
 })
 
@@ -67,6 +67,16 @@ const editPost = function(req) {
   let dateString = date.toDateString();
   Object.assign(req.body, { date: dateString.substring(4, dateString.length)});
   Object.assign(req.body, { time: date.toLocaleTimeString()});
+  // getting file path for uploaded image if user uploades file, if not assign default image
+  if (req.file) {
+    //console.log("file uploaded");
+    const reqPath = req.file.path;
+    const alteredPath = req.file.path.substring(22, reqPath.length);
+    Object.assign(req.body, { imgSrc: alteredPath });
+  } else {
+    console.log("no file uploaded");
+    Object.assign(req.body, { imgSrc: "images/image-icon.png"} );
+  }
   // getting the id from data sent in post request
   const postId = req.body.id;
   // getting the index of the post in the array that matches the id in the post request 
@@ -126,7 +136,7 @@ app.post("/create", upload.single('avatar'), (req, res) => {
 //   res.render("index.ejs", {posts: postsArr, imgSrc: alteredPath});
 // })
 
-app.post("/edit", (req, res) => {
+app.post("/edit", upload.single('avatar'), (req, res) => {
   editPost(req);
   res.redirect("/");
 })

@@ -70,7 +70,7 @@
   
       <div id="action2-container" class="form-container visible-no">
         <h2 class="form-title">Edit Post</h2>
-        <form action="/edit" method="post">
+        <form action="/edit" method="post" enctype="multipart/form-data">
           <% if (locals.posts.length > 0) { %>
             <div class="dropdown">
               <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -89,6 +89,7 @@
               <textarea id="content-edit" name="content" cols="30" rows="5" required></textarea>
               <textarea class="visible-no" name="id" id="hidden-input" cols="30" rows="10"></textarea>
               <textarea class="visible-no" name="deleteId" id="hidden-input-3" cols="30" rows="10"></textarea>
+              <input type="file" name="avatar" />
               <input class="post-button" type="submit" value="Update">
             </div>
           <% } else { %>
