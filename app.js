@@ -16,7 +16,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage});
 const app= express();
-const port = 3000;
+const port = process.env.port || 3000;
 const postsArr = [];
 
 
