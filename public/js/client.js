@@ -17,7 +17,7 @@
 
 const getData = async (event) => {
   try {
-    const response = await fetch("http://localhost:3000/server-data");
+    const response = await fetch("https://express-ejs-blog.onrender.com/server-data");
     const myData = await response.json();
     console.log("data fetch", myData);
     if (myData.data.length > 0) {
