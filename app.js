@@ -36,7 +36,8 @@ const addPost = function(req) {
       Object.assign(req.body, { imgSrc: alteredPath });
     } else {
       console.log("no file uploaded");
-      Object.assign(req.body, { imgSrc: "images/image-icon.png"} );
+      let num = Math.ceil(Math.random() * 9);
+      Object.assign(req.body, { imgSrc: `images/spooky${num}.gif`});
     }
     // adds new key value pair to object //
     Object.assign(req.body, { id: idNum });
